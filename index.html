@@ -11,8 +11,9 @@
     <!-- changes -->
 
     <script>
-        var digitalData = digitalData || {};
-        digitalData = {
+        window.adobeDataLayer = window.adobeDataLayer || []
+        var pageData = {}
+        pageData = {
             page: {
                 pageName: "Home Page",
                 siteSection: "",
@@ -23,6 +24,8 @@
                 loginStatus: "",
             },
         };
+        pageData.event = "pageView";
+        adobeDataLayer.push(digitalData);
     </script>
 
     <title>Geometrixx Clothiers</title>
