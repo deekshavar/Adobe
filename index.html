@@ -12,21 +12,22 @@
 
     <script>
         window.adobeDataLayer = window.adobeDataLayer || []
-        var pageData = {}
-        pageData = {
-            page: {
-                pageName: "Home Page",
-                siteSection: "",
-                siteSubsection: "",
-                server: ""
-            },
-            customer: {
-                loginStatus: "",
-            },
-        };
-        pageData.event = "pageView";
-        adobeDataLayer.push(pageData);
+        window.adobeDataLayer.push(
+            {
+
+                event: 'pageView',
+                page: {
+                    pageName: 'home',
+                    siteSection: 'men'
+
+
+                }
+            }
+        )
+
     </script>
+    <script src="https://assets.adobedtm.com/01296dd00565/ad91594d48ad/launch-96e82aa33955-development.min.js"
+        async></script>
 
     <title>Geometrixx Clothiers</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
