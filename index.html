@@ -94,7 +94,7 @@
                 </span>
 
                 <div class="checkout"><a href="checkout/shoppingcart.html" class="track-shopping-cart">shopping cart</a>
-                    <a href="checkout/shipping1.html">checkout</a>
+                    <a href="checkout/shipping1.html" class="track-checkout">checkout</a>
                 </div>
             </div>
 
@@ -263,6 +263,29 @@
             }
         });
     </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const checkoutLink = document.querySelector(".track-checkout");
+            if (checkoutLink) {
+                checkoutLink.addEventListener("click", function () {
+                    window.adobeDataLayer = window.adobeDataLayer || [];
+                    window.adobeDataLayer.push({
+                        event: 'checkout-click',
+                        page: {
+                            pageName: 'checkout',
+                            siteSection: 'order'
+                        },
+                        link: {
+                            linkName: 'proceed to checkout'
+                        }
+                    });
+                    console.log("Adobe Data Layer push: proceed to checkout");
+                });
+            }
+        });
+    </script>
+
 
 </body>
 
