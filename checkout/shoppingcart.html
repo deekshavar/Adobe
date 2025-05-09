@@ -11,16 +11,28 @@
 
 
     <script>
-        var digitalData = digitalData || {};
-        digitalData = {
+        // var digitalData = digitalData || {};
+        // digitalData = {
+        //     page: {
+        //         pageName: "Checkout:Shopping Cart",
+        //         siteSection: "Checkout",
+        //         server: "Geometrixx Clothiers Site"
+        //     },
+        // };
+        window.adobeDataLayer = window.adobeDataLayer || [];
+        window.adobeDataLayer.push({
+            event: 'checkout-click',
             page: {
-                pageName: "Checkout:Shopping Cart",
-                siteSection: "Checkout",
-                server: "Geometrixx Clothiers Site"
+                pageName: 'checkout',
+                siteSection: 'order'
             },
-        };
+            link: {
+                linkName: 'proceed to checkout'
+            }
+        });
     </script>
-
+    <script src="https://assets.adobedtm.com/01296dd00565/ad91594d48ad/launch-96e82aa33955-development.min.js"
+        async></script>
 
 
     <title>Geometrixx|Checkout|Shopping Cart</title>
