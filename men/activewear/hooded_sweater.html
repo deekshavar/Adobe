@@ -24,6 +24,10 @@
                 productID: "200233",
                 productName: "Hooded Sweater"
             },
+
+            link: {
+                linkName: 'add to cart'
+            }
         };
         window.adobeDataLayer = window.adobeDataLayer || [];
         window.adobeDataLayer.push(digitalData);
@@ -250,6 +254,34 @@
     </script>
 
     <!--Place DTM footer above this-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const addToCartButton = document.querySelector("button.button");
+
+            if (addToCartButton) {
+                addToCartButton.addEventListener("click", function () {
+                    window.adobeDataLayer = window.adobeDataLayer || [];
+                    window.adobeDataLayer.push({
+                        event: 'add-to-cart-click',
+                        page: {
+                            pageName: 'Men:Activewear:Hooded Sweater',
+                            siteSection: 'Men'
+                        },
+                        link: {
+                            linkName: 'add to cart'
+                        },
+                        product: {
+                            productID: "200233",
+                            productName: "Hooded Sweater",
+                            productUnitPrice: "450.00",
+                            productUnitsAdded: "1"
+                        }
+                    });
+                    console.log("Adobe Data Layer push: add to cart");
+                });
+            }
+        });
+    </script>
 
 </body>
 
