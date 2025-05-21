@@ -23,10 +23,6 @@
             product: {
                 productID: "200233",
                 productName: "Hooded Sweater"
-            },
-
-            link: {
-                linkName: 'add to cart'
             }
         };
         window.adobeDataLayer = window.adobeDataLayer || [];
@@ -262,7 +258,7 @@
                 addToCartButton.addEventListener("click", function () {
                     window.adobeDataLayer = window.adobeDataLayer || [];
                     window.adobeDataLayer.push({
-                        event: 'add-to-cart-click',
+                        event: 'addToCartClick',
                         page: {
                             pageName: 'Men:Activewear:Hooded Sweater',
                             siteSection: 'Men'
