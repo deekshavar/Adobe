@@ -288,7 +288,35 @@
     <script type="text/javascript">
         _satellite.pageBottom();
     </script>
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const checkoutLink = document.querySelector(".checkout");
+            if (checkoutLink) {
+                checkoutLink.addEventListener("click", function () {
+                    window.adobeDataLayer = window.adobeDataLayer || [];
+                    window.adobeDataLayer.push({
+                        event: 'checkout-click',
+                        page: {
+                            pageName: 'checkout',
+                            siteSection: 'order'
+                        },
+                        link: {
+                            linkName: 'proceed to checkout'
+                        },
+                        product: {
+                            productID: "201233",
+                            productName: "Tuxedo",
+                            productTotalRevenue: "2600.00",
+                            productTotalUnits: "1",
+                            productTax: "235.00",
+                            productPostage: "50"
+                        }
+                    });
+                    console.log("Adobe Data Layer push: proceed to checkout");
+                });
+            }
+        });
+    </script>
     <!--Place DTM footer above this-->
 
 </body>
