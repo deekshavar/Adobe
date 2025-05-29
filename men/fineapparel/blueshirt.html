@@ -284,6 +284,36 @@
     </script>
 
     <!--Place DTM footer above this-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const addToCartButton = document.querySelector("button.button");
+
+            if (addToCartButton) {
+                addToCartButton.addEventListener("click", function () {
+                    window.adobeDataLayer = window.adobeDataLayer || [];
+                    window.adobeDataLayer.push({
+                        event: 'addToCartClick',
+                        page: {
+                            pageName: 'Men:Fineapparel:Blueshirt',
+                            siteSection: 'Men'
+                        },
+                        link: {
+                            linkName: 'add to cart'
+                        },
+                        product: {
+                            productID: "201241",
+                            productName: "Blue Shirt",
+                            productTotalRevenue: "1200.00",
+                            productTotalUnits: "1",
+                            productTax: "110.00",
+                            productPostage: "30"
+                        }
+                    });
+                    console.log("Adobe Data Layer push: add to cart");
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
