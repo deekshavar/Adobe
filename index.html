@@ -243,38 +243,11 @@
 
     <!--Place DTM footer above this-->
     <script>
-
         document.addEventListener("DOMContentLoaded", function () {
             const shoppingCartLink = document.querySelector(".track-shopping-cart");
             if (shoppingCartLink) {
                 shoppingCartLink.addEventListener("click", function () {
 
-                    var products = [
-                        {
-                            productID: "201233",
-                            productName: "Tuxedo",
-                            productTotalRevenue: "2600.00",
-                            productTotalUnits: "1",
-                            productTax: "235.00",
-                            productPostage: "50"
-                        },
-                        {
-                            productID: "201241",
-                            productName: "Blue Shirt",
-                            productTotalRevenue: "1200.00",
-                            productTotalUnits: "1",
-                            productTax: "110.00",
-                            productPostage: "30"
-                        },
-                        {
-                            productID: "201240",
-                            productName: "Two-Button Suit",
-                            productTotalRevenue: "3100.00",
-                            productTotalUnits: "1",
-                            productTax: "250.00",
-                            productPostage: "40"
-                        }
-                    ];
                     window.adobeDataLayer = window.adobeDataLayer || [];
                     window.adobeDataLayer.push({
                         event: 'click',
@@ -285,51 +258,47 @@
                         link: {
                             linkName: 'shopping cart'
                         },
-                        product: {
-                            productID: "201233",
-                            productName: "Tuxedo",
-                            productTotalRevenue: "2600.00",
-                            productTotalUnits: "1",
-                            productTax: "235.00",
-                            productPostage: "50"
-                        }
+                        product: [
+                            {
+                                productID: "201233",
+                                productName: "Tuxedo",
+                                productTotalRevenue: "2600.00",
+                                productTotalUnits: "1",
+                                productTax: "235.00",
+                                productPostage: "50"
+                            },
+                            {
+                                productID: "201241",
+                                productName: "Blue Shirt",
+                                productTotalRevenue: "1200.00",
+                                productTotalUnits: "1",
+                                productTax: "110.00",
+                                productPostage: "30"
+                            },
+                            {
+                                productID: "201240",
+                                productName: "Two-Button Suit",
+                                productTotalRevenue: "3100.00",
+                                productTotalUnits: "1",
+                                productTax: "250.00",
+                                productPostage: "40"
+                            }
+                        ]
                     });
+
+                    console.log("Shopping cart event pushed to adobeDataLayer");
                 });
             }
         });
     </script>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const checkoutLink = document.querySelector(".checkout");
             if (checkoutLink) {
                 checkoutLink.addEventListener("click", function () {
-                    var products = [
-                        {
-                            productID: "201233",
-                            productName: "Tuxedo",
-                            productTotalRevenue: "2600.00",
-                            productTotalUnits: "1",
-                            productTax: "235.00",
-                            productPostage: "50"
-                        },
-                        {
-                            productID: "201241",
-                            productName: "Blue Shirt",
-                            productTotalRevenue: "1200.00",
-                            productTotalUnits: "1",
-                            productTax: "110.00",
-                            productPostage: "30"
-                        },
-                        {
-                            productID: "201240",
-                            productName: "Two-Button Suit",
-                            productTotalRevenue: "3100.00",
-                            productTotalUnits: "1",
-                            productTax: "250.00",
-                            productPostage: "40"
-                        }
-                    ];
+
                     window.adobeDataLayer = window.adobeDataLayer || [];
                     window.adobeDataLayer.push({
                         event: 'checkout-click',
@@ -340,6 +309,32 @@
                         link: {
                             linkName: 'proceed to checkout'
                         },
+                        products: [
+                            {
+                                productID: "201233",
+                                productName: "Tuxedo",
+                                productTotalRevenue: "2600.00",
+                                productTotalUnits: "1",
+                                productTax: "235.00",
+                                productPostage: "50"
+                            },
+                            {
+                                productID: "201241",
+                                productName: "Blue Shirt",
+                                productTotalRevenue: "1200.00",
+                                productTotalUnits: "1",
+                                productTax: "110.00",
+                                productPostage: "30"
+                            },
+                            {
+                                productID: "201240",
+                                productName: "Two-Button Suit",
+                                productTotalRevenue: "3100.00",
+                                productTotalUnits: "1",
+                                productTax: "250.00",
+                                productPostage: "40"
+                            }
+                        ]
 
 
                     });
