@@ -20,6 +20,32 @@
         //     },
         // };
         window.adobeDataLayer = window.adobeDataLayer || [];
+        var products = [
+            {
+                productID: "201233",
+                productName: "Tuxedo",
+                productTotalRevenue: "2600.00",
+                productTotalUnits: "1",
+                productTax: "235.00",
+                productPostage: "50"
+            },
+            {
+                productID: "201241",
+                productName: "Blue Shirt",
+                productTotalRevenue: "1200.00",
+                productTotalUnits: "1",
+                productTax: "110.00",
+                productPostage: "30"
+            },
+            {
+                productID: "201240",
+                productName: "Two-Button Suit",
+                productTotalRevenue: "3100.00",
+                productTotalUnits: "1",
+                productTax: "250.00",
+                productPostage: "40"
+            }
+        ];
         window.adobeDataLayer.push({
             event: 'cartView',
             page: {
@@ -29,14 +55,7 @@
             link: {
                 linkName: 'proceed to checkout'
             },
-            product: {
-                productID: "201233",
-                productName: "Tuxedo",
-                productTotalRevenue: "2600.00",
-                productTotalUnits: "1",
-                productTax: "235.00",
-                productPostage: "50"
-            }
+
         });
     </script>
     <script src="https://assets.adobedtm.com/01296dd00565/ad91594d48ad/launch-96e82aa33955-development.min.js"
@@ -293,6 +312,33 @@
             const checkoutLink = document.querySelector("input.button-checkout");
             if (checkoutLink) {
                 checkoutLink.addEventListener("click", function () {
+
+                    var products = [
+                        {
+                            productID: "201233",
+                            productName: "Tuxedo",
+                            productTotalRevenue: "2600.00",
+                            productTotalUnits: "1",
+                            productTax: "235.00",
+                            productPostage: "50"
+                        },
+                        {
+                            productID: "201241",
+                            productName: "Blue Shirt",
+                            productTotalRevenue: "1200.00",
+                            productTotalUnits: "1",
+                            productTax: "110.00",
+                            productPostage: "30"
+                        },
+                        {
+                            productID: "201240",
+                            productName: "Two-Button Suit",
+                            productTotalRevenue: "3100.00",
+                            productTotalUnits: "1",
+                            productTax: "250.00",
+                            productPostage: "40"
+                        }
+                    ];
                     window.adobeDataLayer = window.adobeDataLayer || [];
                     window.adobeDataLayer.push({
                         event: 'checkout-click',
@@ -303,14 +349,7 @@
                         link: {
                             linkName: 'proceed to checkout'
                         },
-                        product: {
-                            productID: "201233",
-                            productName: "Tuxedo",
-                            productTotalRevenue: "2600.00",
-                            productTotalUnits: "1",
-                            productTax: "235.00",
-                            productPostage: "50"
-                        }
+
                     });
                     console.log("Adobe Data Layer push: proceed to checkout");
                 });
