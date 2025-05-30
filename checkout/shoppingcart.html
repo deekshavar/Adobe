@@ -292,11 +292,8 @@
             let prodObj = {
                 "name": prodParams[1].split("=")[1],
                 "quantity": quantity,
-                "priceTotal": price * quantity
-
-
-
-
+                "priceTotal": price * quantity,
+                "SKU": prodParams[1].split("=")[1]
             }
             commerce.push(prodObj)
         }
