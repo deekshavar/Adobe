@@ -16,6 +16,7 @@
             return `${prefix}-${timestamp}-${randomNum}`;
         } 
     </script>
+
     <script>
         var digitalData = digitalData || {};
         digitalData = {
@@ -57,6 +58,29 @@
         }
 
         window.adobeDataLayer = window.adobeDataLayer || [];
+        var commerce = []
+        let prodString = decodeURI(readCookie("simpleCart"));
+
+        let prods = prodString.split("++");
+
+        for (let i = 0; i < prods.length; i++) {
+
+            let prodParams = prods[i].split("||");
+            console.log("ProdParams", prodParams);
+            let prod_name = prodParams[1].split("=")[1]
+            let quantity = prodParams[4].split("=")[1]
+
+            let price = prodParams[2].split("=")[1]
+
+
+            let prodObj = {
+                "name": prodParams[1].split("=")[1],
+                "quantity": quantity,
+                "priceTotal": price * quantity,
+                "SKU": prodParams[1].split("=")[1]
+            }
+            commerce.push(prodObj)
+        }
         window.adobeDataLayer.push(digitalData);
     </script>
     <script src="https://assets.adobedtm.com/01296dd00565/ad91594d48ad/launch-96e82aa33955-development.min.js"
