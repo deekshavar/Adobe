@@ -21,42 +21,6 @@
         // };
         window.adobeDataLayer = window.adobeDataLayer || [];
 
-        window.adobeDataLayer.push({
-            event: 'cartView',
-            page: {
-                pageName: 'checkout',
-                siteSection: 'order'
-            },
-            link: {
-                linkName: 'proceed to checkout'
-            },
-            products: [
-                {
-                    productID: "201233",
-                    productName: "Tuxedo",
-                    productTotalRevenue: "2600.00",
-                    productTotalUnits: "1",
-                    productTax: "235.00",
-                    productPostage: "50"
-                },
-                {
-                    productID: "201241",
-                    productName: "Blue Shirt",
-                    productTotalRevenue: "1200.00",
-                    productTotalUnits: "1",
-                    productTax: "110.00",
-                    productPostage: "30"
-                },
-                {
-                    productID: "201240",
-                    productName: "Two-Button Suit",
-                    productTotalRevenue: "3100.00",
-                    productTotalUnits: "1",
-                    productTax: "250.00",
-                    productPostage: "40"
-                }
-            ]
-        });
     </script>
     <script src="https://assets.adobedtm.com/01296dd00565/ad91594d48ad/launch-96e82aa33955-development.min.js"
         async></script>
@@ -306,6 +270,50 @@
 
     <script type="text/javascript">
         _satellite.pageBottom();
+    </script>
+
+    <script>
+
+        var commerce = []
+        let prodString = decodeURI(readCookie("simpleCart"));
+
+        let prods = prodString.split("++");
+
+        for (let i = 0; i < prods.length; i++) {
+
+            let prodParams = prods[i].split("||");
+            console.log("ProdParams", prodParams);
+            let prod_name = prodParams[1].split("=")[1]
+            let quantity = prodParams[4].split("=")[1]
+
+            let price = prodParams[2].split("=")[1]
+
+
+            let prodObj = {
+                "name": prodParams[1].split("=")[1],
+                "quantity": quantity,
+                "priceTotal": price * quantity
+
+
+
+
+            }
+            commerce.push(prodObj)
+        }
+
+
+
+        window.adobeDataLayer.push({
+            event: 'cartView',
+            page: {
+                pageName: 'checkout',
+                siteSection: 'order'
+            },
+            link: {
+                linkName: 'proceed to checkout'
+            },
+            products: commerce
+        });
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
