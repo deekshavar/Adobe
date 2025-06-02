@@ -104,8 +104,8 @@
                 prodObj[key] = decodeURIComponent(value);
             }
 
-            let quantity = parseInt(prodObj.integer || 0);
-            let price = parseFloat(prodObj.float || 0);
+            let quantity = parseInt(prodObj.quantity || 0);
+            let price = parseFloat(prodObj.price || 0);
 
             commerce.push({
                 name: prodObj.name,
