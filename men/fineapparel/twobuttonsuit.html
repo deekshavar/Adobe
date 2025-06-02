@@ -218,12 +218,10 @@
                 If you need a suit, this is the one you need.
                 <p><span class="cart">
                         <form action="../../checkout/shoppingcart.html">
-                            <button type=submit
-                                onclick="simpleCart.add('name=Two-button Suit','price=1850.00','image=https://ats-sb.adobe.com/jjsite/include/fa_man.jpg');"
-                                name="sku" value="201240" class="button">ADD TO CART</button>
+                            <button name="sku" value="201240" class="button">ADD TO CART</button>
                         </form>
                     </span>
-                    <p />
+                </p>
 
             </div>
         </td>
@@ -271,9 +269,11 @@
                         }
                     });
                     console.log("Adobe Data Layer push: add to cart");
+                    simpleCart.add('name=Two-button Suit', 'price=1850.00', 'image=https://ats-sb.adobe.com/jjsite/include/fa_man.jpg');
+
                     setTimeout(function () {
                         addToCartButton.closest("form").submit();
-                    }, 2000);
+                    }, 3000);
 
                 });
             }
