@@ -312,7 +312,7 @@
             products: commerce
         });
     </script>
-    <script>
+    <!-- <script>
         document.addEventListener("DOMContentLoaded", function () {
             const checkoutLink = document.querySelector("input.button-checkout");
             if (checkoutLink) {
@@ -361,8 +361,69 @@
                 });
             }
         });
-    </script>
+
+    </script> -->
     <!--Place DTM footer above this-->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const checkoutForm = document.querySelector("form[action='shipping1.html']");
+            const checkoutButton = checkoutForm.querySelector("input[type='submit']");
+
+            if (checkoutForm && checkoutButton) {
+                checkoutForm.addEventListener("submit", function (e) {
+                    e.preventDefault(); // Stop the default redirect for now
+
+                    // Fire Adobe Data Layer event
+                    window.adobeDataLayer = window.adobeDataLayer || [];
+                    window.adobeDataLayer.push({
+                        event: 'checkout-click',
+                        page: {
+                            pageName: 'checkout',
+                            siteSection: 'order'
+                        },
+                        link: {
+                            linkName: 'proceed to checkout'
+                        },
+                        products: [
+                            {
+                                productID: "201233",
+                                productName: "Tuxedo",
+                                productTotalRevenue: "2600.00",
+                                productTotalUnits: "1",
+                                productTax: "235.00",
+                                productPostage: "50"
+                            },
+                            {
+                                productID: "201241",
+                                productName: "Blue Shirt",
+                                productTotalRevenue: "1200.00",
+                                productTotalUnits: "1",
+                                productTax: "110.00",
+                                productPostage: "30"
+                            },
+                            {
+                                productID: "201240",
+                                productName: "Two-Button Suit",
+                                productTotalRevenue: "3100.00",
+                                productTotalUnits: "1",
+                                productTax: "250.00",
+                                productPostage: "40"
+                            }
+                        ]
+                    });
+
+                    console.log("Adobe Data Layer push: proceed to checkout");
+
+                    // Delay before submitting to let Launch fire
+                    setTimeout(function () {
+                        checkoutForm.submit();
+                    }, 500); // 500ms delay — adjust if needed
+                });
+            }
+        });
+    </script>
+
 
 </body>
 
