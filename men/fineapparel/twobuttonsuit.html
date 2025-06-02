@@ -272,8 +272,9 @@
                     });
                     console.log("Adobe Data Layer push: add to cart");
                     setTimeout(function () {
-                        addToCartButton.submit();
+                        addToCartButton.closest("form").submit();
                     }, 1000);
+
                 });
             }
         });
