@@ -245,12 +245,6 @@
     <!--End footer-->
 
     <!--Place DTM footer below this-->
-
-    <script type="text/javascript">
-        _satellite.pageBottom();
-    </script>
-
-    <!--Place DTM footer above this-->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const addToCartButton = document.querySelector("button.button");
@@ -267,19 +261,31 @@
                         link: {
                             linkName: 'add to cart'
                         },
-                        product: {
-                            productID: "200233",
-                            productName: "Tuxedo",
-                            productUnitPrice: "450.00",
-                            productUnitsAdded: "1"
-                        }
+                        products: [
+                            {
+                                productID: "200233",
+                                name: "Tuxedo",
+                                price: "450.00",
+                                quantity: "1"
+                            }
+                        ]
                     });
                     console.log("Adobe Data Layer push: add to cart");
 
                 });
+
+
             }
         });
     </script>
+    <script type="text/javascript">
+        if (window._satellite) {
+            _satellite.pageBottom();
+        }
+    </script>
+
+    <!--Place DTM footer above this-->
+
 </body>
 
 </html>
