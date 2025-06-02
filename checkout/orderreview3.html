@@ -73,7 +73,17 @@
             commerce.push(prodObj)
         }
 
-        window.adobeDataLayer.push(commerce);
+        window.adobeDataLayer.push({
+            event: 'pageView',
+            page: {
+                pageName: 'checkout',
+                siteSection: 'order'
+            },
+            // link: {
+            //     linkName: 'Purchase'
+            // },
+            products: commerce
+        });
     </script>
     <script src="https://assets.adobedtm.com/01296dd00565/ad91594d48ad/launch-96e82aa33955-development.min.js"
         async></script>
