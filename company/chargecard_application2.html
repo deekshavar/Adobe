@@ -18,7 +18,13 @@
                 siteSection: "Company",
                 server: "Geometrixx Clothiers Site"
             },
+            event: "pageView"
         };
+        window.adobeDataLayer = window.adobeDataLayer || [];
+        window.adobeDataLayer.push(digitalData);
+    </script>
+    <script src="https://assets.adobedtm.com/01296dd00565/ad91594d48ad/launch-96e82aa33955-development.min.js"
+        async></script>
     </script>
 
 
@@ -567,8 +573,9 @@
                                     <td>
                                     </td>
                                     <td>
-                                        <a href="https://ats-sb.adobe.com/jjsite/include/include/charge_card_site.php"
-                                            class="button2" onClick="">Proceed to Apply</a>
+                                        <a id="proceedButton" href="#"
+                                            data-href="http://ats-sb.adobe.com/jjsite/include/include/charge_card_site.html"
+                                            class="button2">Proceed to Apply</a>
 
                                     </td>
                                 </tr>
@@ -620,7 +627,30 @@
     </script>
 
     <!--Place DTM footer above this-->
+    <script>
+        document.getElementById("proceedButton").addEventListener("click", function (e) {
+            e.preventDefault(); // stop immediate navigation
 
+            var redirectUrl = this.getAttribute("data-href");
+
+            var digitalData = digitalData || {};
+            digitalData = {
+                page: {
+                    pageName: "Company:Geo Charge Card Step 2",
+                    siteSection: "Company",
+                    server: "Geometrixx Clothiers Site"
+                },
+                event: "ccAppComplete"
+            };
+            window.adobeDataLayer = window.adobeDataLayer || [];
+            window.adobeDataLayer.push(digitalData);
+
+            // Wait ~500ms to ensure rule/tag fires, then redirect
+            setTimeout(function () {
+                window.location.href = redirectUrl;
+            }, 500);
+        });
+    </script>
 </body>
 
 </html>
