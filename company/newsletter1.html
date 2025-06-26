@@ -17,8 +17,17 @@
                 siteSection: "Company",
                 server: "Geometrixx Clothiers Site"
             },
+            event: "pageView"
         };
+        window.adobeDataLayer = window.adobeDataLayer || [];
+        window.adobeDataLayer.push(digitalData);
     </script>
+    <script src="https://assets.adobedtm.com/01296dd00565/ad91594d48ad/launch-96e82aa33955-development.min.js"
+        async></script>
+    </script>
+
+
+
 
     <title>Geometrixx|Company|Newsletter Subscription Start</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -318,7 +327,7 @@
                                     <td>
                                     </td>
                                     <td>
-                                        <input type="submit" value="Subscribe" class="button">
+                                        <input type="submit" id="submitButton" value="Subscribe" class="button">
                                     </td>
                                 </tr>
 
@@ -352,7 +361,32 @@
     </script>
 
     <!--Place DTM footer above this-->
+    <script>
+        document.getElementById("submitButton").addEventListener("click", function (event) {
+            // Prevent the form from submitting immediately
+            event.preventDefault();
 
+            // Gather checked newsletter types
+            const selected = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'));
+            const newsletterList = selected.map(cb => ({ value: cb.nextSibling.textContent.trim() }));
+
+            // Push the ACDL event
+            window.adobeDataLayer = window.adobeDataLayer || [];
+            window.adobeDataLayer.push({
+                event: "newsletterSignup",
+                user: {
+                    preferences: {
+                        newsletterTypes: newsletterList
+                    }
+                }
+            });
+
+            // Optional delay to let the event be captured, then submit the form
+            setTimeout(() => {
+                event.target.form.submit();
+            }, 300); // adjust delay if needed
+        });
+    </script>
 </body>
 
 </html>
